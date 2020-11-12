@@ -1,14 +1,13 @@
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 10px;
-    line-height: 12px;
     letter-spacing: 0em;
 
 }
 
 .top-header {
     width: 100%;
-    height: 70px;
+    height: 15%;
     left: 0px;
     top: 0px;
     background: #FFD241;
@@ -28,10 +27,10 @@ body {
     display: flex;
     align-items: center;
     position: fixed;
-    top: 23px;
-    right: 23px;
-    width: 26px;
-    height: 26px;
+    top: 2.3vh;
+    right: 2.3vw;
+    width: 2.6em;
+    height: 2.6em;
     cursor: pointer;
     z-index: 1;
 }
@@ -42,17 +41,17 @@ body {
   display: block;
   position: absolute;
   width: 100%;
-  height: 5px;
+  height: .5em;
   background-color: #000;
 }
 
 .menu-btn > span::before {
     content: '';
-    top: -8px;
+    top: -.8em;
 }
 .menu-btn > span::after {
     content: '';
-    top: 8px;
+    top: .8em;
 }
 
 .menu-box {
@@ -102,9 +101,14 @@ body {
 }
 
 .name-header {
+    display: flex;
     text-align: center;
     margin: 4em auto 2em;
-    font-size: 36px;
+    font-size: 3em;
+}
+
+div.name-header h2 {
+    margin: 0 auto;
 }
 
 .wrapper {
@@ -114,7 +118,8 @@ body {
 }
 
 .form-header {
-    font-size: 36px;
+    display: flex;
+    font-size: 3em;
 }
 
 /*Styles for card desk*/
@@ -138,7 +143,7 @@ div.card-content {
 }
 
 article > a > img {
-    max-width: 380px;
+    max-width: 100%;
 }
 
 .card-image-price {
@@ -159,29 +164,26 @@ article > a > img {
     margin: 1em 1.4em;
     text-decoration: none;
     color: #000;
-    font-size: 18px;
+    font-size: 1.8em;
 }
 
 p.country-name {
     color: #C5B223;
     text-transform: capitalize;
-    font-size: 9px;
     margin: 1rem 0;
 }
 p.tour-name {
-    font-size: 18px;
+    font-size: 1.8em;
     text-align: left;
     clear: both;
 }
 p.tour-route {
     max-width: 340px;
-    font-size: 9px;
     color: #8C8C8C;
     line-height: 1.2em;
     padding-top: 1rem;
 }
 p.tour-dates {
-    font-size: 9px;
     line-height: 1.3em;
     padding: .5rem 0;
     border: solid 1px white;
@@ -194,7 +196,6 @@ span.addition {
     text-align: center;
     border: solid 1px #CB0037;
     color: white;
-    font-size: 9px;
     padding: .3rem 1rem;
 }
 
@@ -206,8 +207,7 @@ span.addition {
 }
 
 div.about {
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 1.2em;
     letter-spacing: 0em;
     text-align: left;
     margin: 2rem 0;
@@ -215,9 +215,7 @@ div.about {
 
 span.about-text {
     border-bottom: solid 3px;
-    font-size: 10px;
-    line-height: 12px;
-    letter-spacing: 0em;
+    font-size: 1.2em;
 }
 
 div.about-wrapper {
@@ -232,8 +230,7 @@ div.about-block {
 }
 div.about-block > label,
 div.messenger > label {
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 1.2em;
     letter-spacing: 0em;
     margin: .5rem 0;
 }
@@ -241,7 +238,7 @@ div.about-block > input {
     min-height: 2rem;
     border: solid 1px #E7E7E7;
     padding: .5rem 1rem;
-    font-size: 10px;
+    font-size: 1.2em;
 }
 .about-block-messenger {
     max-width: 380px;
@@ -350,3 +347,39 @@ button.send {
 div.space {
     height: 5rem;
 }
+
+
+/*breakpoints*/
+/*phone only */
+@media screen and (max-width: 599px) { 
+    body {font-size: 14px;}
+    .cards-desk {flex-direction: column}
+    .card, img.thumbnail,
+    .price-box {width: 100%}
+    .menu-btn > span {height: .5em; width: 5em; right: 3em}
+    #menu-toggle:checked ~ .menu-box {left:50vw}
+    div.about-wrapper,
+    .about-two-columns {flex-direction: column; width: 100%;}
+    div.source-column,
+    div.messenger-column {width: 100%;}
+}
+
+
+
+/*tablet portrait up*/
+
+@media screen and (min-width: 600px) { 
+    .cards-desk {justify-content: space-around;}
+ }
+
+/*tablet-landscape-up*/
+@media screen and (min-width: 900px) { 
+    #menu-toggle:checked ~ .menu-box {left:70vw} }
+
+/*desktop up*/
+@media screen and (min-width: 1200px) { 
+ }
+/*big desktop up*/
+@media screen and (min-width: 1800px) { 
+ }
+
