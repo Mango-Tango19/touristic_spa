@@ -1,21 +1,27 @@
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 10px;
+    line-height: 12px;
     letter-spacing: 0em;
 
 }
-/*Styles for header and hamburger menu*/
+
 .top-header {
     width: 100%;
     height: 70px;
     left: 0px;
     top: 0px;
     background: #FFD241;
+    position: fixed;
 }
+
+/*Styles for header and hamburger menu*/
 
 #menu-toggle {
     opacity: 0;
+}
+.side-menu {
+    visibility: hidden;
 }
 
 .menu-btn {
@@ -90,16 +96,25 @@ body {
     visibility: visible;
     left: 80%;
 }
+#menu-toggle:checked ~ .side-menu {
+    visibility: visible;
+    left: 80%;
+}
 
 .name-header {
     text-align: center;
-    margin: 1.5em auto;
+    margin: 4em auto 2em;
+    font-size: 36px;
 }
 
 .wrapper {
     max-width: 780px;
     width: 100%;
     margin: 0 auto;
+}
+
+.form-header {
+    font-size: 36px;
 }
 
 /*Styles for card desk*/
@@ -117,12 +132,18 @@ body {
 .card:hover {
     box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
 }
+
+div.card-content {
+    padding-bottom: 1em;
+}
+
 article > a > img {
     max-width: 380px;
 }
 
 .card-image-price {
     position: relative;
+    z-index: -1;
 }
 
 .price-box {
@@ -163,6 +184,8 @@ p.tour-dates {
     font-size: 9px;
     line-height: 1.3em;
     padding: .5rem 0;
+    border: solid 1px white;
+    margin-bottom: 1em;
 }
 
 span.addition {
@@ -235,6 +258,7 @@ label .checkbox-messenger {
 
 label {
     font-size: 10px;
+    font-weight: bold;
 }
 
 input[type=checkbox] {
@@ -270,3 +294,59 @@ input[type=checkbox]:active {
     filter: brightness(80%);
 }
 
+/*messengers*/
+
+.about-two-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.messenger-column,
+.source-column {
+    width: 45%;
+}
+ 
+input.emails [type=checkbox] {
+    display: inline-block;
+}
+/*agreement*/
+
+div.subscribtion {
+    display: flex;
+    padding: 3em 0;
+}
+
+div.subscribtion-titles {
+    padding-left: 1em;
+}
+
+div.subscribtion-titles > p{
+    padding-bottom: 2em;
+}
+
+div.subscribtion-titles > p.subtitle {
+    color: #C1C1C1;
+}
+
+.extra {
+    padding-top: 2em;
+}
+
+span.star {
+    color: red;
+}
+
+button.send {
+    background-color: #FFD241;
+    padding: 1em 2em;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 29.5px;
+    font-size: 1.2em;
+
+}
+
+div.space {
+    height: 5rem;
+}
