@@ -7,7 +7,7 @@ body {
 
 .top-header {
     width: 100%;
-    height: 15%;
+    height: 10vh;
     left: 0px;
     top: 0px;
     background: #FFD241;
@@ -54,7 +54,7 @@ body {
     top: .8em;
 }
 
-.menu-box {
+ul.menu-box {
     display: block;
     position: fixed;
     visibility: hidden;
@@ -360,8 +360,10 @@ div.space {
     #menu-toggle:checked ~ .menu-box {left:50vw}
     div.about-wrapper,
     .about-two-columns {flex-direction: column; width: 100%;}
+    div.about-block,
     div.source-column,
     div.messenger-column {width: 100%;}
+    div.about-block-messenger {max-width: 100%;}
 }
 
 
@@ -378,8 +380,10 @@ div.space {
 
 /*desktop up*/
 @media screen and (min-width: 1200px) { 
- }
+    #menu-toggle:checked ~ .menu-box {left:80vw} }
+ 
 /*big desktop up*/
 @media screen and (min-width: 1800px) { 
- }
+    #menu-toggle:checked ~ .menu-box {left:85vw} }
+ 
 
