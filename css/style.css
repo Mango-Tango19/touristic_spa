@@ -19,9 +19,6 @@ body {
 #menu-toggle {
     opacity: 0;
 }
-.side-menu {
-    visibility: hidden;
-}
 
 .menu-btn {
     display: flex;
@@ -346,6 +343,32 @@ button.send {
 
 div.space {
     height: 5rem;
+}
+.input-right {
+    box-shadow: 0 0 10px rgba(75, 252, 21, 0.5);
+}
+
+.input-right-final {
+    background: rgba(75, 252, 21, 0.397);
+    color:  rgb(18, 58, 6);
+    font-size: 1.5em;
+    
+}
+
+.input-wrong {
+    box-shadow: 0 0 10px rgba(252, 29, 21, 0.5);
+}
+
+.input-wrong-final {
+    background:rgba(252, 29, 21, 0.699);
+}
+ul.ui-autocomplete.ui-menu {
+    background: #FFD241;
+    width: fit-content;
+}
+
+ul.ui-autocomplete.ui-menu li:hover {
+    background: #cca834;
 }
 
 

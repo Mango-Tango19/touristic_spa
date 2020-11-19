@@ -1,0 +1,156 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0em;
+}
+/*Styles for header and hamburger menu*/
+
+.top-header {
+    width: 100%;
+    height: 10vh;
+    left: 0px;
+    top: 0px;
+    background: #FFD241;
+    position: fixed;
+    
+    #menu-toggle {
+        opacity: 0;
+    
+        &:checked ~ .menu-btn > span {
+            transform: rotate(45deg);
+          }
+
+        &:checked ~ .menu-btn > span::before {
+            top: 0;
+            transform: rotate(0);
+        }
+    
+        &:checked ~ .menu-btn > span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+        &:checked ~ .menu-box {
+            visibility: visible;
+            left: 80%;
+        }
+
+        &:checked ~ .side-menu {
+            visibility: visible;
+            left: 80%;
+        }
+
+
+    }
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 2.3vh;
+    right: 2.3vw;
+    width: 2.6em;
+    height: 2.6em;
+    cursor: pointer;
+    z-index: 1;
+    
+    span, 
+    span::before,
+    span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: .5em;
+        background-color: #000;
+    }
+
+    span::before {
+        content: '';
+        top: -.8em;
+    }
+
+    span::after {
+    content: '';
+    top: .8em;
+}
+}
+ul.menu-box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    text-align: center;
+    background-color: #ecb604;;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+
+    .menu-item {
+        display: block;
+        padding: 12px 24px;
+        color: #333;
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #dfcf9b;;
+        }
+      }
+}
+@font: 3em;
+.name-header {
+    display: flex;
+    text-align: center;
+    margin: 4em auto 2em;
+    font-size: @font;
+
+    h2 {
+        margin: 0 auto;
+    }
+}
+
+.wrapper {
+    max-width: 780px;
+    width: 100%;
+    margin: 0 auto;
+}
+.form-header {
+    display: flex;
+    font-size: @font;
+}
+
+.cards-desk {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .card {
+        flex: 0 1 45%;
+        margin-bottom: 1rem;
+   
+        &:hover {
+        box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+        }
+
+        a > img {
+            max-width: 100%;
+        }
+
+        &-image-price {
+            position: relative;
+            z-index: -1;
+        }
+    }
+}
+
+
+div.card-content {
+    padding-bottom: 1em;
+}
+
+
