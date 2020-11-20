@@ -59,7 +59,30 @@ $(document).ready(function() {
         });
     });
 
+    $(window).on('scroll', function() {
 
+        if ( $(window).scrollTop() > document.documentElement.scrollHeight)
+        {
+            $('.form-header').fadeIn(2000); 
+            $('.about').fadeIn(2000); 
+            //$('.about-wrapper').fadeIn(2000);
+        
+         }
+        else {
+            $('.form-header').fadeOut(2000); 
+            $('.about').fadeOut(2000); 
+            //$('.about-wrapper').fadeOut(2000); 
+        }
+    });
+
+    // $(window).bind('mousewheel', function(e) {
+    //     if (e.originalEvent.wheelDelta >= 0) {
+    //         console.log('Scroll up');
+    //     }
+    //     else {
+    //         console.log('Scroll down');
+    //     }
+    // });
 
 });
 

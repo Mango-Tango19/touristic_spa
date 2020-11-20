@@ -328,7 +328,7 @@ div.subscribtion-titles > p.subtitle {
 
 span.star {
     color: red;
-}
+}   
 
 button.send {
     background-color: #FFD241;
@@ -339,6 +339,11 @@ button.send {
     border-radius: 29.5px;
     font-size: 1.2em;
 
+}
+
+button.send:disabled {
+    background-color: #ebdfb7;
+    color: #867f68;
 }
 
 div.space {
