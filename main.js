@@ -59,30 +59,27 @@ $(document).ready(function() {
         });
     });
 
-    $(window).on('scroll', function() {
 
-        if ( $(window).scrollTop() > document.documentElement.scrollHeight)
-        {
-            $('.form-header').fadeIn(2000); 
-            $('.about').fadeIn(2000); 
-            //$('.about-wrapper').fadeIn(2000);
-        
-         }
-        else {
-            $('.form-header').fadeOut(2000); 
-            $('.about').fadeOut(2000); 
-            //$('.about-wrapper').fadeOut(2000); 
-        }
-    });
 
-    // $(window).bind('mousewheel', function(e) {
-    //     if (e.originalEvent.wheelDelta >= 0) {
-    //         console.log('Scroll up');
+
+
+    // while ($(window).scrollTop() < $(document).height()) {
+    //     $('.check').each(function() {
+    //         let pos = $(this).offset(),
+    //         wY = $(window).scrollTop();
+    //         //wH = $(window).height(),
+    //         //oH = $(this).outerHeight();
+    //     if (pos.top >= wY) {
+    //         $(this).fadeIn(5000);
     //     }
-    //     else {
-    //         console.log('Scroll down');
-    //     }
-    // });
+    //     });
+    // }
+    // })
 
+    // $(window).scrollTop() - сколько прокрутил от верха
+    //window.screen.availHeight - высота окна 
 });
+
+
+
 
