@@ -303,6 +303,7 @@ input[type=checkbox]:active {
 input.emails [type=checkbox] {
     display: inline-block;
 }
+
 /*agreement*/
 
 div.subscribtion {

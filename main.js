@@ -1,45 +1,43 @@
 
 $(document).ready(function() {
-    //phone number check
 
-    $('#user-phone').inputmask({"mask": "+7-(999)-999-99-99"});
+    //checking phone
+    $('#user-phone').inputmask("+7-(999)-999-99-99", {
+        oncomplete: function () {
+            $(this).addClass('input-right-final');
+            localStorage.setItem('phone', $(this).val());
+        }
+    });
 
-    $('#user-phone').on('change', function() { 
-        if ($(this)) {
-        $(this).addClass('input-right-final');
+
+    //checking name
+    $('#user-name').on('input', function() {
+        let re = /^[а-яА-Я ]+$/g;
+    if (re.test($(this).val())) {
+        $(this).addClass('input-right');
+        $(this).removeClass('input-wrong');
+        $(this).removeClass('input-wrong-final');
+
+    } else {
+        $(this).addClass('input-wrong');
+        $(this).removeClass('input-right');
+        $(this).removeClass('input-right-final');
     }
     });
 
-   //user name check
-
-    $('#user-name').on('input', function() {
-        let re = /^[а-яА-Я ]+$/g;
-        if (re.test($(this).val())) {
-            $(this).addClass('input-right');
-            $(this).removeClass('input-wrong');
-            $(this).removeClass('input-wrong-final');
-
-        } else {
-            $(this).addClass('input-wrong');
-            $(this).removeClass('input-right');
-            $(this).removeClass('input-right-final');
-        }
-    });
-
     $('#user-name').on('change', function() {
-        let re = /^[а-яА-Я ]+$/g;
-        if (re.test($(this).val())) {
-            $(this).addClass('input-right-final');
-            $(this).removeClass('input-right');
-        } else {
-            $(this).addClass('input-wrong-final');
-        }
+    let re = /^[а-яА-Я ]+$/g;
+    if (re.test($(this).val())) {
+        $(this).addClass('input-right-final');
+        $(this).removeClass('input-right');
+        localStorage.setItem('name', $(this).val());
+    } else {
+        $(this).addClass('input-wrong-final');
+    }
     })
-
-    //date check
-
-    //$('#date-to-go').inputmask({"mask": "99/99/9999"});
     
+    //choosing date from calendar
+
     $.datepicker.regional['ru'] = {
         closeText: 'Закрыть',
         prevText: 'Предыдущий',
@@ -63,9 +61,9 @@ $(document).ready(function() {
         $('#date-to-go').datepicker();
     });
 
-
     // choosing country
 
+    //get country list from server
     let countries;
     $.ajax({ 
         url: "http://localhost:3000/countries", 
@@ -78,6 +76,7 @@ $(document).ready(function() {
 
     let countriesArr = countries.split(',');
 
+    //picking country
 
     $( function() {
         $( '#country-to-go' ).autocomplete({
@@ -85,18 +84,73 @@ $(document).ready(function() {
         });
     });
 
-    //input validation
+    $( '#country-to-go' ).on('change', function() {
+        localStorage.setItem ('country', $('#country-to-go').val()); 
+    })
 
-    $(function () { 
-        if ( $('#user-name').val())
-        { if($('#user-phone').val()) {
-            if ($('#country-to-go').val()) {
-                $('.send').attr('disabled') = false;
-            }
-        } // перемотать на телефон ('#user-phone').;
-        } // перемотать на имя
+    //collecting data
+    
+    //checking loaclStorage
+    if (localStorage.getItem('name')) {
+        $('#user-name').val() = localStorage.getItem('name');
+    }
+
+    if (localStorage.getItem('country')) {
+        $( '#country-to-go' ).val() = localStorage.getItem('country');
+    }
+
+    if (localStorage.getItem('phone')) {
+        $('#user-phone').val = localStorage.getItem('phone');
+    }
+
+    //input validation
+    // debugger
+    // let phone = document.getElementById('user-phone');
+    // phone.scrollIntoView({
+    //     behavior: "smooth", 
+    //     block: "start"});
+    $('#required-agreement').on('click', function() {
+        if ($(this).prop('checked') ) {
+            $('.send').removeAttr('disabled');
+    }}
+    )
+    
+    $('.send').on('submit', function () { 
+        data = [];
+        debugger
+        if (!name || !country || !phone) {
+            name =  $('#user-name').val();
+            data.push({'name': name});
+            localStorage.setItem('name', name)
         }
-     )
+
+        if (!country) {
+            country =  $('#country-to-go').val();
+            data.push({'country': country})
+            localStorage.setItem('country', country);
+        }
+
+        //phone =  $('#user-phone').val();
+    })
+
+ 
+      
+    
+
+    
+    // $(function () { 
+    //     if ( $('#user-name').val())
+    //     { if($('#user-phone').val()) {
+    //         if ($('#country-to-go').val()) {
+    //             $('.send').attr('disabled') = false;
+    //         }
+    //     } ('#user-phone').scrollIntoView({
+    //         behavior: "smooth", 
+    //         block: "start"});
+    //     } // перемотать на имя
+    // })
+    
+
 });
 
 
